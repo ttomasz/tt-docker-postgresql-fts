@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ ! $* ]; then
+    echo "Nie podano nazw plików ze s³owami" 
+    exit
+fi
+
+cat $* > polish.dic
+
+buildhash polish.dic polish.aff polish.hash \
+ && rm -f polish.dic polish.dic.cnt polish.dic.stat
